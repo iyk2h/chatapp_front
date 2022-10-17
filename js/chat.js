@@ -2,8 +2,10 @@ let username  = prompt("아이디를 입력하세요")
 let roomNum  = prompt("채팅방 번호를 입력하세요")
 
 document.querySelector("#username").innerHTML = username;
+// const basicUrl = `http://localhost:3999`;
+const basicUrl = `http://3.94.44.116:3999`;
 
-const eventSource = new EventSource(`http://localhost:8080/chat/roomNum/${roomNum}`);
+const eventSource = new EventSource(`${basicUrl}/chat/roomNum/${roomNum}`);
 
 eventSource.onmessage = (event) => {
     const data = JSON.parse(event.data);
@@ -71,8 +73,8 @@ async function addMessage(){
         roomNum: roomNum,
         msg: msgInput.value
     };
-
-    fetch("http://localhost:8080/chat", {
+    
+    fetch(`${basicUrl}/chat`, {
         method: "post",
         body: JSON.stringify(chat),
         headers: {
