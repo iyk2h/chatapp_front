@@ -3,7 +3,7 @@ let roomNum  = prompt("채팅방 번호를 입력하세요")
 
 document.querySelector("#username").innerHTML = username;
 // const basicUrl = `http://localhost:3999`;
-const basicUrl = `http://3.94.44.116:3999`;
+const basicUrl = `http://34.195.94.5:3999`;
 
 const eventSource = new EventSource(`${basicUrl}/chat/roomNum/${roomNum}`);
 
